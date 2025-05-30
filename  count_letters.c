@@ -1,21 +1,20 @@
-// count_letters.c
 #include <stdio.h>
 
 int main() {
     char str[100];
     int vowels = 0, consonants = 0, i = 0;
+    char ch;
 
+    // Lecture de la chaîne avec fgets
     fgets(str, sizeof(str), stdin);
 
-    while (str[i] != '\0') {
-        char ch = str[i];
+    while (str[i] != '\0' && str[i] != '\n') {
+        ch = str[i];
 
-        // Voyelle
         if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
             ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
             vowels++;
         }
-        // Consonne (lettre alpha mais pas voyelle)
         else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
             consonants++;
         }
