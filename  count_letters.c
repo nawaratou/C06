@@ -1,27 +1,23 @@
+// count_letters.c
 #include <stdio.h>
 
 int main() {
-    char str[200];
-    int i = 0, vowels = 0, consonants = 0;
+    char str[100];
+    int vowels = 0, consonants = 0, i = 0;
 
-   
-    scanf(" %[^\n]", str);
+    fgets(str, sizeof(str), stdin);
 
     while (str[i] != '\0') {
-        char c = str[i];
+        char ch = str[i];
 
-        // Convertir en minuscule si majuscule
-        if (c >= 'A' && c <= 'Z') {
-            c += 32;
+        // Voyelle
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+            vowels++;
         }
-
-        // Vérifie si c'est une lettre
-        if (c >= 'a' && c <= 'z') {
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                vowels++;
-            } else {
-                consonants++;
-            }
+        // Consonne (lettre alpha mais pas voyelle)
+        else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+            consonants++;
         }
 
         i++;
