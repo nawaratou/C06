@@ -2,28 +2,32 @@
 
 int main() {
     char str[100];
-    int vowels = 0, consonants = 0, i = 0;
+    int voyelles = 0, consonnes = 0;
+    int i = 0;
     char ch;
 
-    // Lecture de la chaîne avec fgets
-    fgets(str, sizeof(str), stdin);
+    // Lecture de la chaîne (avec espaces)
+    scanf("%99[^\n]", str);
 
-    while (str[i] != '\0' && str[i] != '\n') {
+    // Parcours caractère par caractère
+    while (str[i] != '\0') {
         ch = str[i];
 
-        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
-            vowels++;
-        }
-        else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
-            consonants++;
+        if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                voyelles++;
+            } else {
+                consonnes++;
+            }
         }
 
         i++;
     }
 
-    printf("Voyelles : %d\n", vowels);
-    printf("Consonnes : %d\n", consonants);
+    // Affichage demandé
+    printf("Voyelles : %d\n", voyelles);
+    printf("Consonnes : %d\n", consonnes);
 
     return 0;
 }
