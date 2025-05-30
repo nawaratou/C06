@@ -1,17 +1,18 @@
+// reverse_string.c
 #include <stdio.h>
 
 int main() {
     char str[100];
     int i = 0, length = 0;
 
-   
-    scanf(" %[^\n]", str);  // ✔️ format valide // lit une ligne entière avec espaces
+    fgets(str, sizeof(str), stdin); // lire toute la ligne (espaces compris)
 
-    // Calcul de la longueur manuellement
-    while (str[length] != '\0') {
+    // Calculer la longueur manuellement
+    while (str[length] != '\0' && str[length] != '\n') {
         length++;
     }
 
+    printf("Chaîne inversée : ");
     for (i = length - 1; i >= 0; i--) {
         printf("%c", str[i]);
     }
