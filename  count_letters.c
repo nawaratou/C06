@@ -1,25 +1,22 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <ctype.h> // pour tolower() et isalpha()
 
 int main() {
-    char str[100];
-    int i = 0, voyelles = 0, consonnes = 0;
+    char str[1000];
+    int voyelles = 0, consonnes = 0;
 
-    // Lire une ligne entière sans message
-    scanf(" %[^\n]", str);
+    fgets(str, sizeof(str), stdin); // lire la chaîne avec espaces
 
-    // Balayage caractère par caractère
-    while (str[i] != '\0') {
-        char ch = str[i];
+    for (int i = 0; str[i] != '\0'; i++) {
+        char c = tolower(str[i]);
 
-        if (isalpha(ch)) {  // Si c'est une lettre
-            ch = tolower(ch);  // Ignorer la casse
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+        if (isalpha(c)) {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y') {
                 voyelles++;
-            else
+            } else {
                 consonnes++;
+            }
         }
-        i++;
     }
 
     printf("Voyelles : %d\n", voyelles);
