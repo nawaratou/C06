@@ -3,9 +3,9 @@
 
 int main() {
     char str[100];
-    int vowels = 0, consonants = 0;
-    gets(str);
-
+    int vowels = 0;
+     int consonants = 0 ;
+     fgets(str, sizeof(str), stdin);
     for (int i = 0; i < strlen(str); i++) {
         if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')) {
             if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' ||
