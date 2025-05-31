@@ -1,36 +1,39 @@
 #include <stdio.h>
-#include <string.h>
 
-int main() {
-    char str[101];  // Taille max 100 + \0
+int main()
+{
+    char str[100];
+    int i = 0;
     int vowels = 0;
     int consonants = 0;
 
-    // On lit une ligne complète, y compris les espaces
-    fgets(str, sizeof(str), stdin);
+    // Demande à l'utilisateur d'entrer une chaîne
+    
+    scanf("%99s", str);  // %99s pour éviter le débordement (lire max 99 caractères)
 
-    // Retirer le saut de ligne ajouté par fgets (si présent)
-    size_t len = strlen(str);
-    if (len > 0 && str[len - 1] == '\n') {
-        str[len - 1] = '\0';
-    }
-
-    // Parcourir chaque caractère de la chaîne
-    for (int i = 0; str[i] != '\0'; i++) {
-        char c = str[i];
-        // Vérifier si c'est une lettre alphabétique
-        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-            // Vérifier si c'est une voyelle (minuscule ou majuscule)
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+    // Parcours chaque caractère jusqu'à la fin de la chaîne
+    while (str[i] != '\0')
+    {
+        // Vérifie si c'est une lettre alphabétique
+        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+        {
+            // Vérifie si c'est une voyelle (minuscule ou majuscule)
+            if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' ||
+                str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')
+            {
                 vowels++;
-            } else {
+            }
+            else
+            {
                 consonants++;
             }
         }
+        i++;
     }
 
-    printf("Voyelles : %d\nConsonnes : %d\n", vowels, consonants);
+    // Affiche les résultats
+    printf("Voyelles : %d\n", vowels);
+    printf("Consonnes : %d\n", consonants);
 
     return 0;
 }
