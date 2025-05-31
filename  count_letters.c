@@ -1,54 +1,22 @@
-// C program to count the number of 
-// vowels and consonants in a string 
+#include <stdio.h>
+#include <string.h>
 
-#include <stdio.h> 
+int main() {
+    char str[100];
+    int vowels = 0, consonants = 0;
+    gets(str);
 
-// Function to count number 
-// of vowels and consonant 
-void count_vowels_and_consonant(char* str) 
-{ 
-    // Declare the variable vowels and consonant 
-    int vowels = 0, consonants = 0; 
+    for (int i = 0; i < strlen(str); i++) {
+        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')) {
+            if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' ||
+                str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U') {
+                vowels++;
+            } else {
+                consonants++;
+            }
+        }
+    }
 
-    int i; 
-    char ch; 
-
-    // Take each character from this string to check 
-    for (i = 0; str[i] != '\0'; i++) { 
-
-        ch = str[i]; 
-
-        // If this character is a vowel, 
-        // increment the count of vowels 
-        if (ch == 'a' || ch == 'e'
-            || ch == 'i' || ch == 'o'
-            || ch == 'u' || ch == 'A'
-            || ch == 'E' || ch == 'I'
-            || ch == 'O' || ch == 'U') 
-            vowels++; 
-
-        // If this character is a space 
-        // skip it 
-        else if (ch == ' ') 
-            continue; 
-
-        else
-            // Else increment the count of consonants 
-            consonants++; 
-    } 
-
-    // Print the total count of vowels and consonants 
-    printf("\nVowels: %d", vowels); 
-    printf("\nConsonants: %d", consonants); 
-} 
-
-// Driver function. 
-int main() 
-{ 
-    char* str = "geeks for geeks"; 
-    printf("String: %s", str); 
-
-    count_vowels_and_consonant(str); 
-
-    return 0; 
+    printf("Vowels: %d\nConsonants: %d\n", vowels, consonants);
+    return 0;
 }
