@@ -1,28 +1,33 @@
+/* Program to determine wether entered letter is a vowel or a consonant */
+
 #include <stdio.h>
-#include <ctype.h>  // pour isalpha()
 
-int main()
-{
-    char str[101]; // Taille max 100 + 1 pour '\0'
-    int i = 0, vow = 0, con = 0;
+int main(void) {
+  // start of main
 
-    fgets(str, sizeof(str), stdin); // Lecture sécurisée de la chaîne
+  char str[100]; //declaring the required variables
 
-    while (str[i] != '\0' && str[i] != '\n') // Ignorer le retour à la ligne
-    {
-        char c = str[i];
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
-        {
-            vow++;
-        }
-        else if (isalpha(c)) // On compte comme consonne seulement si c'est une lettre
-        {
-            con++;
-        }
-        i++;
-    }
+  int i = 0, vowels = 0;
+  int consonants = 0;  // initialising the required counter variables
+  
+  /* taking the input from user */
+  gets(str);  // using the built in function to read the user entered string
 
-    printf("%d %d\n", vow, con);
-    return 0;
+  while(str[i]!='\0'){
+    
+  if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U'){   // checking wether the character or letter is a vowel or not
+    vowels ++ ;  // increment vowel count
+  }
+    else{
+      consonants++;   // else increment consonants by one
+    }i++;
+  }
+
+  /* displaying the number of vowels and consonants */
+
+  printf("no of vowels is %d\n",vowels); 
+  printf("no of consonats os %d\n",consonants);
+
+ // end of main
+ 
 }
