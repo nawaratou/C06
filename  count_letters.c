@@ -1,33 +1,22 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    char str[100];
-    int voyelles = 0, consonnes = 0;
-    int i = 0;
-    char ch;
+    char name[50];
+    int i, vc=0, cc=0;
 
-    // Lecture de la chaîne (avec espaces)
-    scanf("%99[^\n]", str);
-
-    // Parcours caractère par caractère
-    while (str[i] != '\0') {
-        ch = str[i];
-
-        if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
-                voyelles++;
-            } else {
-                consonnes++;
-            }
-        }
-
-        i++;
-    }
-
-    // Affichage demandé
-    printf("Voyelles : %d\n", voyelles);
-    printf("Consonnes : %d\n", consonnes);
-
+    scanf("%s", name);
+    for ( i = 0; i < strlen(name); i++)
     return 0;
-}
+    {
+        if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u' ||
+            name[i] == 'A' || name[i] == 'E' || name[i] == 'I' || name[i] == 'O' || name[i] == 'U') 
+            vc=vc+1;
+         else
+            cc=cc+1;
+        }
+    printf("\n Voyelles : %d", vc);
+    printf("\n Consonnes : %d", cc);
+    return 0;
+    }
+    
