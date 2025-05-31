@@ -1,33 +1,43 @@
-/* Program to determine wether entered letter is a vowel or a consonant */
+/*
+
+                  Count vowels and consonants
+                  Given a string, print count of vowels and consonants in the string.
+
+Input Format
+Input contains a string S, consisting of lowercase and uppercase characters.
+
+Constraints
+1 <= len(S) <= 100
+
+Output Format
+Print count of vowels and consonants in the given string, separated by space.
+
+Sample Input 0
+aBxbbiAasPw
+
+Sample Output 0
+4 7
+
+Explanation 0
+Self Explanatory
+
+*/
 
 #include <stdio.h>
-
-int main(void) {
-  // start of main
-
-  char str[100]; //declaring the required variables
-
-  int i = 0, vowels = 0;
-  int consonants = 0;  // initialising the required counter variables
-  
-  /* taking the input from user */
-  gets(str);  // using the built in function to read the user entered string
-
-  while(str[i]!='\0'){
+int main()
+{
+    char str[100];
+    int i,vow,con;
+    i=vow=con=0;
     
-  if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U'){   // checking wether the character or letter is a vowel or not
-    vowels ++ ;  // increment vowel count
-  }
-    else{
-      consonants++;   // else increment consonants by one
-    }i++;
-  }
-
-  /* displaying the number of vowels and consonants */
-
-  printf("no of vowels is %d\n",vowels); 
-  printf("no of consonats os %d\n",consonants);
-
- // end of main
- 
+    gets(str);
+    while (str[i]!='\0')
+    {
+        if(str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u' || str[i]=='A' || str[i]=='E' || str[i]=='I' || str[i]=='O' || str[i]=='U')
+              vow++;      
+          else
+            con++;
+        i++;
+    }
+    printf("%d %d", vow,con);
 }
