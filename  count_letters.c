@@ -1,16 +1,22 @@
 #include <stdio.h>
-#include <ctype.h> // pour tolower() et isalpha()
 
 int main() {
     char str[1000];
     int voyelles = 0, consonnes = 0;
 
-    fgets(str, sizeof(str), stdin); // lire la chaîne avec espaces
+    fgets(str, sizeof(str), stdin); // lecture avec espaces
 
     for (int i = 0; str[i] != '\0'; i++) {
-        char c = tolower(str[i]);
+        char c = str[i];
 
-        if (isalpha(c)) {
+        // Mettre les majuscules en minuscules manuellement
+        if (c >= 'A' && c <= 'Z') {
+            c = c + 32;
+        }
+
+        // Vérifie si c'est une lettre
+        if ((c >= 'a') && (c <= 'z')) {
+            // Voyelles
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y') {
                 voyelles++;
             } else {
