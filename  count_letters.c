@@ -5,8 +5,8 @@
 #include <string.h>
 int main()
 {
-  int vowel_count = 0;
-  int consonant_count = 0;
+  int vowel_count;
+  int consonant_count;
   char s[100];
   gets(s);
   for(int i=0;i<strlen(s);i++)
