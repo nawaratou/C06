@@ -1,23 +1,29 @@
-//Write a program to count the number of vowels and consonants in a string.
-
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <ctype.h> // Pour isalpha() et tolower()
+
 int main()
 {
-  int vowel_count;
-  int consonant_count;
-  char s[100];
-  gets(s);
-  for(int i=0;i<strlen(s);i++)
-    {
-      if(s[i] >=65 && s[i] <=90) s[i]+=32;
-      
-      if(s[i] == 'a'|| s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') vowel_count++;
+    char str[101];
+    int vow = 0, con = 0, i = 0;
 
-      else consonant_count++;
+    // Lire toute la ligne, y compris les espaces
+    fgets(str, sizeof(str), stdin);
+
+    while (str[i] != '\0')
+    {
+        if (isalpha(str[i])) // Vérifie que c'est une lettre (ignore les ponctuations, etc.)
+        {
+            char lower = tolower(str[i]);
+            if (lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u')
+                vow++;
+            else
+                con++;
+        }
+        i++;
     }
-  printf("Vowel count is: %d\n",vowel_count);
-  printf("Consonant count is: %d\n",consonant_count);
-  
-  }
+
+    printf("Voyelles : %d\n", vow);
+    printf("Consonnes : %d\n", con);
+
+    return 0;
+}
