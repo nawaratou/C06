@@ -1,34 +1,26 @@
 #include <stdio.h>
+#include <ctype.h>  // pour tolower() et isalpha()
 
 int main() {
     char str[200];
-    int i = 0, vowels = 0, consonants = 0;
+    int voyelles = 0, consonnes = 0;
 
-    printf("Entrez une chaîne : ");
-    scanf(" %[^\n]", str);
+    // Lire la ligne entrée directement sans afficher de message
+    fgets(str, sizeof(str), stdin);
 
-    while (str[i] != '\0') {
-        char c = str[i];
+    for (int i = 0; str[i] != '\0'; i++) {
+        char c = tolower(str[i]);
 
-        // Convertir en minuscule si majuscule
-        if (c >= 'A' && c <= 'Z') {
-            c += 32;
-        }
-
-        // Vérifie si c'est une lettre
-        if (c >= 'a' && c <= 'z') {
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                vowels++;
+        if (isalpha(c)) {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y') {
+                voyelles++;
             } else {
-                consonants++;
+                consonnes++;
             }
         }
-
-        i++;
     }
 
-    printf("Voyelles : %d\n", vowels);
-    printf("Consonnes : %d\n", consonants);
-
+    // Affichage propre comme demandé
+    printf("Voyelles : %d, Consonnes : %d\n", voyelles, consonnes);
     return 0;
 }
