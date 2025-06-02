@@ -20,7 +20,7 @@ int main()
             // Vérifie si c'est une voyelle (minuscule ou majuscule)
             if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' ||
                 str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')
-            {
+            {!
                 vowels++;
             }
             else
